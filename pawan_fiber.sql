@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 08, 2022 at 01:36 AM
+-- Generation Time: Dec 14, 2022 at 06:17 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -29,8 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `absensi` (
   `id` int NOT NULL,
+  `id_user` int DEFAULT NULL,
   `nama` varchar(255) DEFAULT NULL,
-  `tanggal` date DEFAULT NULL,
+  `istirahat` int DEFAULT NULL,
+  `pulang` int DEFAULT NULL,
+  `jam_istirahat` time DEFAULT NULL,
+  `jam_pulang` time DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL,
   `longitude` varchar(255) DEFAULT NULL,
   `latitude` varchar(255) DEFAULT NULL,
@@ -42,56 +46,12 @@ CREATE TABLE `absensi` (
 -- Dumping data for table `absensi`
 --
 
-INSERT INTO `absensi` (`id`, `nama`, `tanggal`, `foto`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES
-(1, 'jemi', '2022-11-23', 'app/images/absensi/-1669177486-agw3u.webp', '109.6163185', '-0.2467982', '2022-11-23 04:24:47', '2022-11-23 04:24:47'),
-(2, 'jemi', NULL, 'app/images/absensi/-1669178983-mu4bC.webp', '109.987781', '-1.8169204', '2022-11-23 04:49:43', '2022-11-28 07:16:23'),
-(4, 'Ade Maulana Alfaqi', NULL, 'app/images/absensi/-1669269623-bCEHt.png', '109.9873675', '-1.8160743', '2022-11-24 06:00:24', '2022-11-24 06:00:24'),
-(7, 'pppp', NULL, 'app/images/absensi/-1669620807-5tnJt.png', '109.98769243212843', '-1.816543479736785', '2022-11-28 07:33:28', '2022-11-28 07:33:28'),
-(9, 'soleh', NULL, 'app/images/absensi/-1669622674-zHFgA.webp', '109.9876439', '-1.8171338', '2022-11-28 08:04:34', '2022-11-28 08:04:34'),
-(10, 'kon', NULL, 'app/images/absensi/-1669630203-1KpHw.png', '109.9692941', '-1.8439633', '2022-11-28 10:10:03', '2022-11-28 10:10:03');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `absen_masuk`
---
-
-CREATE TABLE `absen_masuk` (
-  `id` int NOT NULL,
-  `id_absen` int DEFAULT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `tanggal` date DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  `longitude` varchar(255) DEFAULT NULL,
-  `latitude` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `absen_masuk`
---
-
-INSERT INTO `absen_masuk` (`id`, `id_absen`, `nama`, `tanggal`, `foto`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES
-(3, NULL, 'jemi', '2022-11-04', 'app/images/absensi/-1667541424-hQUIU.webp', NULL, NULL, '2022-11-03 22:57:05', '2022-11-03 22:57:05'),
-(4, NULL, 'datok', '2022-11-04', 'app/images/absensi/-1667546298-S5yMP.webp', NULL, NULL, '2022-11-04 00:18:18', '2022-11-04 00:18:18'),
-(5, NULL, 'sakti', '2022-11-04', 'app/images/absensi/-1667546492-xhByB.jpg', NULL, NULL, '2022-11-04 00:21:32', '2022-11-04 00:21:32'),
-(8, NULL, 'datok', '2022-11-15', 'app/images/absensi/-1668513708-0Gti1.png', '109.3664237', '0.0087989', '2022-11-15 12:01:48', '2022-11-15 12:01:48'),
-(9, NULL, 'pppp', '2022-11-22', 'app/images/absensi/-1669125533-ADj0H.webp', '109.9616069', '-1.8228269', '2022-11-22 13:58:53', '2022-11-22 13:58:53');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `absen_pulang`
---
-
-CREATE TABLE `absen_pulang` (
-  `id` int NOT NULL,
-  `id_absensi` int DEFAULT NULL,
-  `level` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `absensi` (`id`, `id_user`, `nama`, `istirahat`, `pulang`, `jam_istirahat`, `jam_pulang`, `foto`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES
+(15, 6, 'Akmal Alfarizi', 1, 1, NULL, NULL, 'app/images/absensi/-1670573146-3nPsw.webp', '109.98769099039261', '-1.8165430508777476', '2022-12-09 08:05:46', '2022-12-09 08:05:46'),
+(16, 5, 'ade maulana', 2, 2, '15:02:48', '15:02:31', 'app/images/absensi/-1670911994-CuH7q.png', '109.98769245682671', '-1.8165449670375455', '2022-12-13 06:13:14', '2022-12-13 08:02:50'),
+(18, 5, 'ade maulana', 2, 2, '15:01:42', '15:02:10', 'app/images/absensi/-1670914700-x5Zux.webp', '109.98769405570886', '-1.8165460440996704', '2022-12-13 06:58:20', '2022-12-13 08:02:15'),
+(19, 5, 'ade maulana', 2, 2, '12:23:39', '12:23:43', 'app/images/absensi/-1670995419-e3Zkd.png', '109.97818833509542', '-1.8414146812930559', '2022-12-14 05:23:39', '2022-12-14 05:26:06'),
+(20, 5, 'ade maulana', 2, 2, '12:29:11', '12:30:05', 'app/images/absensi/-1670995751-RTCF4.webp', '109.97818428469017', '-1.8413437767279448', '2022-12-14 05:29:11', '2022-12-14 05:32:30');
 
 -- --------------------------------------------------------
 
@@ -124,28 +84,38 @@ INSERT INTO `admin` (`id`, `nama`, `username`, `password`, `remember_token`, `em
 --
 
 CREATE TABLE `datapegawai` (
-  `id` bigint NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `nik` varchar(255) DEFAULT NULL,
-  `divisi` enum('administrasi','staff') DEFAULT NULL,
-  `gaji_pokok` varchar(255) DEFAULT NULL,
-  `kontrak` enum('tetap','kontrak','magang/training','freelance/parttime') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id` int NOT NULL,
+  `level` varchar(11) DEFAULT NULL,
+  `nik` bigint DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `no_hp` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `jabatan` varchar(255) DEFAULT NULL,
-  `tanggal_masuk` date DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL,
+  `gaji_pokok` int DEFAULT NULL,
+  `status_kerja` enum('Tetap','Kontrak','Magang/Training','Freelance/Partime') DEFAULT NULL,
+  `jatah_cuti` varchar(255) DEFAULT NULL,
+  `tanggal_berakhir` date DEFAULT NULL,
+  `jam_kerja` enum('Senin - Jumat','Senin - Sabtu') DEFAULT NULL,
+  `jenis_kelamin` enum('Laki - Laki','Perempuan') DEFAULT NULL,
+  `no_handphone` varchar(255) DEFAULT NULL,
+  `divisi` enum('Administrasi','Pegawai','Office boy','Teknisi','Keuangan','Security','HRD','Marketing') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `jabatan` enum('HRD','Direktur','Bendahara','Sekretaris') DEFAULT NULL,
+  `tanggal_masuk` date DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `datapegawai`
 --
 
-INSERT INTO `datapegawai` (`id`, `nama`, `nik`, `divisi`, `gaji_pokok`, `kontrak`, `email`, `password`, `no_hp`, `jabatan`, `tanggal_masuk`, `foto`, `created_at`, `updated_at`) VALUES
-(6, 'Ade Maulana Alfaqi', '6104162602040001', 'administrasi', '1000000', 'tetap', 'admlna26@gmail.com', '$2y$10$BCO.C/C5EuKmXB2PXh2XDetGWj1EuBmL9ffCYnuLOKRKv2u4o9cjC', '089668407351', 'sgszg', '2022-11-08', 'app/images/datapegawai/-1667897469-Tc0Or.webp', '2022-11-08 08:51:10', '2022-11-16 06:06:16');
+INSERT INTO `datapegawai` (`id`, `level`, `nik`, `email`, `nama`, `foto`, `gaji_pokok`, `status_kerja`, `jatah_cuti`, `tanggal_berakhir`, `jam_kerja`, `jenis_kelamin`, `no_handphone`, `divisi`, `jabatan`, `tanggal_masuk`, `password`, `created_at`, `updated_at`) VALUES
+(1, '2', 12345678900566, 'pegawai@gmail.com', 'Pegawai', 'app/admin/images/datapegawai/8-1669776602-29i98.jpg', 4000000, 'Kontrak', '9', '2022-11-16', 'Senin - Jumat', 'Perempuan', '0897865643', 'Pegawai', 'Direktur', '2022-11-16', '$2y$10$P6QmznDMK/oalX9zO5Kqh.oPHuvmW/WvmFnQOflsGU0x7nKnQZFny', '2022-11-15 23:00:40', '2022-11-30 02:50:02'),
+(2, '1', 1234567890012345, 'admin@gmail.com', 'ADMIN', 'app/admin/images/datapegawai/9-1669775869-BTQmh.jpg', 4000000, 'Tetap', '9', '2022-11-25', 'Senin - Sabtu', 'Laki - Laki', '0897865643', 'Administrasi', 'HRD', '2022-11-25', '$2y$10$P6QmznDMK/oalX9zO5Kqh.oPHuvmW/WvmFnQOflsGU0x7nKnQZFny', '2022-11-25 03:20:05', '2022-11-30 02:37:49'),
+(3, '2', 3457875665645, 'saturnus@gmail.com', 'Saturnus', 'app/admin/images/datapegawai/11-1669695340-813EH.jpg', 5000000, 'Tetap', '9', '2022-11-29', 'Senin - Jumat', 'Laki - Laki', '1232455675', 'Keuangan', 'Bendahara', '2022-11-29', '$2y$10$UJNmM7sOF1BLdAZ9waI.beYok94wzsctkxhQS35qczKPBrmiRsnGy', '2022-11-29 04:15:40', '2022-11-29 04:15:40'),
+(4, '1', 123456789064532, 'admin1@gmail.com', 'Admin2', 'app/admin/images/datapegawai/12-1669703879-tJ69G.jpg', 4000000, 'Freelance/Partime', '9', '2022-11-29', 'Senin - Sabtu', 'Perempuan', '454545445454', 'Security', 'Sekretaris', '2022-11-29', '$2y$10$oBr/oDUSkPTa3Fx8on6XueXecTxQvzbJvbtVAAXChhqUT4p.lljYu', '2022-11-29 06:37:59', '2022-11-29 06:38:29'),
+(5, NULL, 93740237402, 'admlna26@gmail.com', 'ade maulana', 'app/images/datapegawai/97efb9a4-24a2-471a-afe2-a2f0eb6ed5ec-1670558675-R8zSu.webp', 200000, 'Kontrak', '6', '2022-12-23', 'Senin - Jumat', 'Laki - Laki', '0820174190274', 'Pegawai', 'Bendahara', '2022-12-09', '$2y$10$sWJFkStUPNFxoPmNKPfya.qUmo38y8wu3jKt.F4FUlXgtIHicWkQe', '2022-12-09 04:04:35', '2022-12-09 04:04:35'),
+(6, NULL, 2349829793520, 'akmal@gmail.com', 'Akmal Alfarizi', 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\php8171.tmp', 200000, 'Kontrak', '6', '2022-12-31', 'Senin - Jumat', 'Laki - Laki', '0820174190274', 'Pegawai', 'Sekretaris', '2022-12-09', '$2y$10$jtzznJwAyoWtbKmm6O47B.3/vWOdk3YJkHkk93KABYaQhnNWBJ01K', '2022-12-09 04:24:59', '2022-12-09 04:24:59');
 
 -- --------------------------------------------------------
 
@@ -175,20 +145,6 @@ INSERT INTO `dinas` (`id`, `nama`, `tanggal`, `kegiatan`, `longitude`, `latitude
 -- --------------------------------------------------------
 
 --
--- Table structure for table `istirahat`
---
-
-CREATE TABLE `istirahat` (
-  `id` int NOT NULL,
-  `id_absen` int DEFAULT NULL,
-  `level` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `izin`
 --
 
@@ -210,10 +166,14 @@ CREATE TABLE `izin` (
 --
 
 INSERT INTO `izin` (`id`, `id_user`, `tipe_izin`, `tanggal_mulai`, `tanggal_selesai`, `keterangan`, `foto`, `status`, `created_at`, `updated_at`) VALUES
-(24, 6, 'Cuti', '2022-11-30', '2022-12-03', '-', 'app/images/izin/24-1669785856-g1OGG.webp', 3, '2022-11-30 05:24:16', '2022-11-30 06:05:55'),
-(25, 6, 'Izin', '2022-12-01', '2022-12-02', 'acara', 'app/images/izin/25-1669864277-vAejz.png', 2, '2022-12-01 03:11:17', '2022-12-01 03:12:10'),
-(26, 6, 'Cuti', '2022-12-03', '2022-12-11', 'kawin', 'app/images/izin/26-1669864969-ZwJ08.webp', 3, '2022-12-01 03:22:49', '2022-12-01 03:23:04'),
-(27, 6, 'Cuti', '2022-12-23', '2022-12-29', 'naek haji', 'app/images/izin/27-1669875433-xhhzX.webp', 1, '2022-12-01 06:17:13', '2022-12-01 06:17:14');
+(28, 1, 'Cuti', '2022-12-08', '2022-12-09', 'naek haji', 'app/images/izin/28-1670469246-9unBh.png', 1, '2022-12-08 03:14:06', '2022-12-13 07:18:59'),
+(29, 1, 'Izin', '2022-12-29', '2022-12-31', 'kawin', 'app/images/izin/29-1670469530-8zHUM.webp', 3, '2022-12-08 03:18:50', '2022-12-13 07:16:48'),
+(30, 1, 'Sakit', '2022-12-15', '2022-12-16', 'demam', 'app/images/izin/30-1670470091-e0xwO.webp', 3, '2022-12-08 03:28:11', '2022-12-08 03:39:06'),
+(31, 3, 'Izin', '2022-12-09', '2022-12-10', 'galik perigi', 'app/images/izin/31-1670470873-qJffC.webp', 3, '2022-12-08 03:41:13', '2022-12-13 07:16:50'),
+(32, 5, 'Izin', '2022-12-13', '2022-12-13', 'ngoding', 'app/images/izin/32-1670916169-PgpZt.webp', 1, '2022-12-13 07:22:49', '2022-12-13 07:22:49'),
+(33, 5, 'Cuti', '2022-12-13', '2022-12-22', 'naek haji', 'app/images/izin/33-1670919313-wSALh.webp', 2, '2022-12-13 08:15:13', '2022-12-13 08:15:24'),
+(34, 5, 'Sakit', '2022-12-14', '2022-12-14', 'sakit perut', 'app/images/izin/34-1670985250-r4qYw.png', 1, '2022-12-14 02:34:10', '2022-12-14 02:34:10'),
+(35, 1, 'Sakit', '2022-12-14', '2022-12-14', 'sakit gigi', 'app/images/izin/35-1670986143-p9IHP.webp', 2, '2022-12-14 02:49:03', '2022-12-14 02:49:13');
 
 -- --------------------------------------------------------
 
@@ -223,10 +183,10 @@ INSERT INTO `izin` (`id`, `id_user`, `tipe_izin`, `tanggal_mulai`, `tanggal_sele
 
 CREATE TABLE `lembur` (
   `id` int NOT NULL,
+  `id_user` int DEFAULT NULL,
   `nama` varchar(255) DEFAULT NULL,
-  `tanggal` date DEFAULT NULL,
-  `jam_mulai` time DEFAULT NULL,
-  `jam_selesai` time DEFAULT NULL,
+  `lembur` int DEFAULT NULL,
+  `jam_selesai` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `aktifitas` text,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -236,32 +196,8 @@ CREATE TABLE `lembur` (
 -- Dumping data for table `lembur`
 --
 
-INSERT INTO `lembur` (`id`, `nama`, `tanggal`, `jam_mulai`, `jam_selesai`, `aktifitas`, `created_at`, `updated_at`) VALUES
-(1, 'Ade Maulana Alfaqi', '2022-11-24', '13:06:00', '13:08:00', 'dasds', '2022-11-24 06:06:34', '2022-11-24 06:06:34');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pengguna`
---
-
-CREATE TABLE `pengguna` (
-  `id` int NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`id`, `nama`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Ade Maulana', 'ademaulanaalfaqi', 'admlna26@gmail.com', '$2y$10$r4.lBEv4jMiAammRTTJSoO7CyWVcr7HMsHlAV1FbqSp/AW1d/ZVPe', NULL, '2022-10-21 06:53:12', '2022-10-21 08:36:32');
+INSERT INTO `lembur` (`id`, `id_user`, `nama`, `lembur`, `jam_selesai`, `aktifitas`, `created_at`, `updated_at`) VALUES
+(4, 5, 'ade maulana', 2, '2022-12-13 06:54:35', 'ngoding', '2022-12-13 06:36:30', '2022-12-13 06:54:35');
 
 --
 -- Indexes for dumped tables
@@ -271,18 +207,6 @@ INSERT INTO `pengguna` (`id`, `nama`, `username`, `email`, `password`, `remember
 -- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `absen_masuk`
---
-ALTER TABLE `absen_masuk`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `absen_pulang`
---
-ALTER TABLE `absen_pulang`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -304,12 +228,6 @@ ALTER TABLE `dinas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `istirahat`
---
-ALTER TABLE `istirahat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `izin`
 --
 ALTER TABLE `izin`
@@ -322,12 +240,6 @@ ALTER TABLE `lembur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengguna`
---
-ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -335,19 +247,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `absen_masuk`
---
-ALTER TABLE `absen_masuk`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `absen_pulang`
---
-ALTER TABLE `absen_pulang`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -359,7 +259,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `datapegawai`
 --
 ALTER TABLE `datapegawai`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dinas`
@@ -368,27 +268,15 @@ ALTER TABLE `dinas`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `istirahat`
---
-ALTER TABLE `istirahat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `izin`
 --
 ALTER TABLE `izin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `lembur`
 --
 ALTER TABLE `lembur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `pengguna`
---
-ALTER TABLE `pengguna`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
