@@ -16,6 +16,7 @@ class DataPegawaiController extends Controller
     public function index()
     {
         $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_datapegawai'] = DataPegawai::all();
         return view('admin.datapegawai.index', $data);
     }
@@ -27,7 +28,9 @@ class DataPegawaiController extends Controller
      */
     public function create()
     {
-        return view('admin.datapegawai.create');
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        return view('admin.datapegawai.create', $data);
     }
 
     /**
@@ -69,6 +72,8 @@ class DataPegawaiController extends Controller
      */
     public function show(DataPegawai $datapegawai)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['datapegawai'] = $datapegawai;
         return view('admin.datapegawai.show', $data);
     }
@@ -81,6 +86,8 @@ class DataPegawaiController extends Controller
      */
     public function edit(DataPegawai $datapegawai)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['datapegawai'] = $datapegawai;
         return view('admin.datapegawai.edit', $data);
     }

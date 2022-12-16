@@ -16,6 +16,7 @@ class AdminController extends Controller
         $data ['diterima'] = Izin::where('status', '2')->count();
         $data ['ditolak'] = Izin::where('status', '3')->count();
         $data ['total'] = Izin::count();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_izin'] = Izin::all();
         return view('admin/dashboard', $data);
     }

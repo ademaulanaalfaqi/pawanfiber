@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dinas;
+use App\Models\Izin;
+use App\Models\Lembur;
 use Illuminate\Http\Request;
 
-class UserDinasController extends Controller
+class AdminLemburController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,10 @@ class UserDinasController extends Controller
      */
     public function index()
     {
-        $id_user = request()->user()->id;
-        $data ['list_dinas'] = Dinas::where('id_user', $id_user)->get();
-        return view('user.dinas.index', $data);
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        $data ['list_lembur'] = Lembur::all();
+        return view('admin.lembur.index', $data);
     }
 
     /**
@@ -26,7 +28,7 @@ class UserDinasController extends Controller
      */
     public function create()
     {
-        return view('user.dinas.create');
+        //
     }
 
     /**
@@ -37,17 +39,7 @@ class UserDinasController extends Controller
      */
     public function store(Request $request)
     {
-        $dinas = new Dinas;
-        $dinas->id_user = request()->user()->id;
-        $dinas->nama = request('nama');
-        $dinas->tanggal_mulai = request('tanggal_mulai');
-        $dinas->tanggal_selesai = request('tanggal_selesai');
-        $dinas->deskripsi_dinas = request('deskripsi_dinas');
-        $dinas->longitude = request('longitude');
-        $dinas->latitude = request('latitude');
-        $dinas->save();
-
-        return redirect('user/dinas')->with('success', 'Data berhasil ditambahkan');
+        //
     }
 
     /**
@@ -56,11 +48,12 @@ class UserDinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Dinas $dinas)
+    public function show(Lembur $lembur)
     {
-        $data ['list_dinas'] = Dinas::where('id',$dinas)->get();
-        $data ['dinas'] = $dinas;
-        return view('user.dinas.show', $data);
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        $data ['lembur'] = $lembur;
+        return view('admin.lembur.show', $data);
     }
 
     /**
@@ -92,8 +85,10 @@ class UserDinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Lembur $lembur)
     {
-        //
+        $lembur->delete();
+
+        return redirect('admin/lembur')->with('success', 'Data berhasil dihapus');
     }
 }

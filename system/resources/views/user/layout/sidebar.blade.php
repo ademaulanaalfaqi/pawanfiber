@@ -26,22 +26,22 @@ function checkRouteActive($route)
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('user/absensi') }}">
+            <li class="{{ checkRouteActive('user/absensi') }} {{ checkRouteActive('user/absensi/create') }} {{ checkRouteActive('user/absensi/{absensi}') }}">
                 <a class="active" href="{{ url('user/absensi') }}"><i class="sidebar-item-icon fa fa-table"></i>
                     <span class="nav-label">Absensi</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('user/lembur') }}">
+            <li class="{{ checkRouteActive('user/lembur') }} {{ checkRouteActive('user/lembur/create') }} {{ checkRouteActive('user/lembur/{lembur}') }}">
                 <a class="active" href="{{ url('user/lembur') }}"><i class="sidebar-item-icon fa fa-file"></i>
                     <span class="nav-label">Lembur</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('user/izin') }}">
+            <li class="{{ checkRouteActive('user/izin') }} {{ checkRouteActive('user/izin/create') }} {{ checkRouteActive('user/izin/{izin}') }} {{ checkRouteActive('user/izin/{izin}/edit') }}">
                 <a class="active" href="{{ url('user/izin') }}"><i class="sidebar-item-icon fa fa-file"></i>
                     <span class="nav-label">Izin dan Cuti</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('user/dinas') }}">
+            <li class="{{ checkRouteActive('user/dinas') }} {{ checkRouteActive('user/dinas/create') }} {{ checkRouteActive('user/dinas/{dinas}') }}">
                 <a class="active" href="{{ url('user/dinas') }}"><i class="sidebar-item-icon fa fa-plane"></i>
                     <span class="nav-label">Dinas</span>
                 </a>

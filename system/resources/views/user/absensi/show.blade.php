@@ -26,11 +26,11 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
         
-        <?php foreach ($list_absensi as $absensi) { ?>
-            L.marker([<?= $absensi->latitude ?>, <?= $absensi->longitude ?>]).addTo(map).bindPopup('<?= $absensi->nama ?>');
-        <?php } ?>
+        // <?php foreach ($list_absensi as $absensi) { ?>
+        //     L.marker([<?= $absensi->latitude ?>, <?= $absensi->longitude ?>]).addTo(map).bindPopup('<?= $absensi->nama ?>');
+        // <?php } ?>
 
-        // L.marker([<?= $absensi->latitude ?>, <?= $absensi->longitude ?>]).addTo(map).bindPopup('<?= $absensi->nama ?>');
+        L.marker([<?= $absensi->latitude ?>, <?= $absensi->longitude ?>]).addTo(map).bindPopup('<?= $absensi->nama ?>');
                 
     </script>
 @endpush

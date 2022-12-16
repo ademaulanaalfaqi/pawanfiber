@@ -15,6 +15,7 @@ class IzinAdminController extends Controller
     public function index()
     {
         $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         return view('admin.izin.index', $data);
     }
 
@@ -25,6 +26,8 @@ class IzinAdminController extends Controller
      */
     public function create()
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         return view('admin.izin.create');
     }
 
@@ -61,6 +64,8 @@ class IzinAdminController extends Controller
      */
     public function show(Izin $izin)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['izin'] = $izin;
         return view('admin.izin.show', $data);
     }

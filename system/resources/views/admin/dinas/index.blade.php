@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -20,11 +21,12 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{url('admin/dinas', $dinas->id)}}" class="btn btn-dark"><i class="fa fa-info"></i> Lihat</a>
+                                                    @include('admin.utils.delete', ['url' => url('admin/dinas', $dinas->id)])
                                                 </div>
                                             </td>
                                             <td>{{$dinas->nama}}</td>
-                                            <td>{{date('d F Y', strtotime($dinas->tanggal))}}</td>
-                                            <td>{{$dinas->kegiatan}}</td>
+                                            <td>{{date('d F Y', strtotime($dinas->tanggal_mulai))}}</td>
+                                            <td>{{$dinas->deskripsi_dinas}}</td>
                                         </tr>                   
                                     @endforeach
                                 </tbody>

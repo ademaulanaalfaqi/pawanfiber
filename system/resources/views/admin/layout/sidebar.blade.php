@@ -26,28 +26,32 @@ function checkRouteActive($route)
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('admin/datapegawai') }}">
+            <li class="{{ checkRouteActive('admin/datapegawai') }} {{ checkRouteActive('admin/datapegawai/create') }} {{ checkRouteActive('admin/datapegawai/{datapegawai}') }} {{ checkRouteActive('admin/datapegawai/{datapegawai}/edit') }}">
                 <a class="active" href="{{ url('admin/datapegawai') }}"><i class="sidebar-item-icon fa fa-user"></i>
                     <span class="nav-label">Data Pegawai</span>
                 </a>
             </li>
-            
-            <li class="{{ checkRouteActive('admin/absensi') }}">
+            <li class="{{ checkRouteActive('admin/absensi') }} {{ checkRouteActive('admin/absensi/{absensi}') }}">
                 <a class="active" href="{{ url('admin/absensi') }}"><i class="sidebar-item-icon fa fa-table"></i>
                     <span class="nav-label">Absensi</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('admin/izin') }}">
+            <li class="{{ checkRouteActive('admin/lembur') }} {{ checkRouteActive('admin/lembur/{lembur}') }}">
+                <a class="active" href="{{ url('admin/lembur') }}"><i class="sidebar-item-icon fa fa-table"></i>
+                    <span class="nav-label">Lembur</span>
+                </a>
+            </li>
+            <li class="{{ checkRouteActive('admin/izin') }} {{ checkRouteActive('admin/izin/create') }} {{ checkRouteActive('admin/izin/{izin}') }}">
                 <a class="active" href="{{ url('admin/izin') }}"><i class="sidebar-item-icon fa fa-file"></i>
                     <span class="nav-label">Izin dan Cuti</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('admin/dinas') }}">
+            <li class="{{ checkRouteActive('admin/dinas') }} {{ checkRouteActive('admin/dinas/{dinas}') }}">
                 <a class="active" href="{{ url('admin/dinas') }}"><i class="sidebar-item-icon fa fa-plane"></i>
                     <span class="nav-label">Dinas</span>
                 </a>
             </li>
-            <li class="{{ checkRouteActive('admin/admin') }}">
+            <li class="{{ checkRouteActive('admin/admin') }} {{ checkRouteActive('admin/admin/create') }}{{ checkRouteActive('admin/admin/{admin}/edit') }}">
                 <a class="active" href="{{ url('admin/admin') }}"><i class="sidebar-item-icon fa fa-user-plus"></i>
                     <span class="nav-label">Admin Web</span>
                 </a>

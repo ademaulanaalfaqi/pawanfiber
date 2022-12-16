@@ -5,7 +5,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Tambah Absen</div>
+                        <div class="card-title">
+                            Tambah Absen
+                        </div>
                     </div>
                     <div class="card-body">
                         <form class="myForm" action="{{ url('user/storeAbsensi') }}" method="post" enctype="multipart/form-data">
@@ -18,11 +20,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="latitude">
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="longitude">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="latitude" hidden>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="longitude" hidden>
+                                    </div>
+                                </div>
                             </div>
                             <button class="btn btn-warning float-right"><i  class="fa fa-save"></i> Simpan</button>
                         </form>

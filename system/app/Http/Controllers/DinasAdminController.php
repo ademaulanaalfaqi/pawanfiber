@@ -16,6 +16,7 @@ class DinasAdminController extends Controller
     public function index()
     {
         $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_dinas'] = Dinas::all();
         return view('admin.dinas.index', $data);
     }
@@ -49,15 +50,13 @@ class DinasAdminController extends Controller
      */
     public function show(Dinas $dinas)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_dinas'] = Dinas::where('id', $dinas)->get();
         $data ['dinas'] = $dinas;
         return view('admin.dinas.show', $data);
     }
 
-    public function showMaps()
-    {
-        return view('admin.dinas.show-maps');
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -88,8 +87,10 @@ class DinasAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dinas $dinas)
     {
-        //
+        $dinas->delete();
+
+        return redirect('admin/dinas')->with('success', 'Data berhasil dihapus');
     }
 }

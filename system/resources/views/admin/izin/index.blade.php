@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
@@ -35,7 +36,7 @@
                                                         <button class="btn btn-danger"><i class="fa fa-times"></i> Tolak</button>
                                                     </form>
                                                 @endif
-                                                <a href="{{url('admin/izin', $izin->id)}}" class="btn btn-default"><i class="fa fa-info"></i> Lihat</a>
+                                                <a href="{{url('admin/izin', $izin->id)}}" class="btn btn-dark"><i class="fa fa-info"></i> Lihat</a>
                                             </div>
                                         </td>
                                         <td>{{$izin->datapegawai->nama}}</td>

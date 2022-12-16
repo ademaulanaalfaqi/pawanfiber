@@ -24,7 +24,7 @@
                         <strong> Tambah Data Izin / Cuti</strong>
                     </div>
                     <div class="card-body">
-                        <form class="myForm" action="{{ url('admin/dinas') }}" method="post" enctype="multipart/form-data">
+                        <form class="myForm" action="{{ url('user/dinas') }}" method="post">
                             @csrf
                             <div class="form-grup">
                                 <label for="">Nama</label>
@@ -55,13 +55,13 @@
                                 <div class="col-md-6">
                                     <div class="form-grup">
 
-                                        <input type="text" class="form-control" id="longitude" name="longitude">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-grup">
 
-                                        <input type="text" class="form-control" id="latitude" name="latitude">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" readonly>
                                     </div>
                                 </div>
                             </div>

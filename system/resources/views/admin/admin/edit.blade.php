@@ -1,9 +1,11 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <a href="{{url('admin/admin')}}" class="btn btn-dark"><i class="fa fa-arrow-left"></i> Kembali</a>
+                <div class="card mt-2">
                     <div class="card-header">
                         <div class="card-title">Tambah Admin</div>
                     </div>

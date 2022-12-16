@@ -3,15 +3,11 @@
     <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
+                <h5><strong>// Izin dan Cuti</strong></h5>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            Izin dan Cuti
-                            <a href="{{url('user/izin/create')}}" class="btn btn-warning float-right"><i class="fa fa-plus"></i> Tambah Permintaan</a>
-                        </div>
-                    </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <a href="{{url('user/izin/create')}}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Tambah Permintaan</a>
+                        <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">
                                     <th>Aksi</th>
@@ -27,7 +23,7 @@
                                         <tr>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{url('user/izin', $izin->id)}}" class="btn btn-default"><i class="fa fa-info"></i> Lihat</a>
+                                                    <a href="{{url('user/izin', $izin->id)}}" class="btn btn-dark"><i class="fa fa-info"></i> Lihat</a>
                                                     @if ($izin->status == 1)
                                                         <a href="{{url('user/izin', $izin->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>                                                        
                                                     @endif

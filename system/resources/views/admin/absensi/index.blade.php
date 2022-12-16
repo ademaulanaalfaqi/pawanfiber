@@ -1,17 +1,25 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-12">
                 <h5><strong>// Absensi</strong></h5>
                 <div class="card">
                     <div class="card-body">
+                        <form action="{{url('admin/absensi/filter')}}" method="post">
+                            @csrf
+                            <div class="form-inline">
+                                <input type="date" name="filter_tanggal" class="form-control" style="width: 150px">
+                                <button class="btn btn-info ml-3">Filter</button>
+                            </div>
+                        </form> <hr>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">
                                     <tr>
                                         <th rowspan="2">Nama</th>
-                                        <th colspan="5" style="text-align: center">Tanggal</th>
+                                        <th colspan="5" style="text-align: center">{{$hari_ini}}</th>
                                         <th rowspan="2">Maps</th>
                                     </tr>
                                     <tr>

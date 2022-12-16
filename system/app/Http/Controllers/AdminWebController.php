@@ -16,6 +16,7 @@ class AdminWebController extends Controller
     public function index()
     {
         $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_admin'] = Admin::all();
         return view('admin.admin.index', $data);
     }
@@ -27,7 +28,9 @@ class AdminWebController extends Controller
      */
     public function create()
     {
-        return view('admin.admin.create');
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        return view('admin.admin.create', $data);
     }
 
     /**
@@ -68,6 +71,8 @@ class AdminWebController extends Controller
      */
     public function edit(Admin $admin)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['admin'] = $admin;
         return view('admin.admin.edit', $data);
     }

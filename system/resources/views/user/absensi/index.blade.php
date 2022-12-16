@@ -6,7 +6,7 @@
                 <h5><strong>// Absensi</strong></h5>
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ url('user/absensi/create') }}" class="btn btn-outline-warning"><i class="fa fa-plus"></i>Absen</a>
+                        <a href="{{ url('user/absensi/create') }}" class="btn btn-outline-success"><i class="fa fa-plus"></i>Absen</a>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">
@@ -32,7 +32,7 @@
                                                         <form action="{{url('user/istirahat', $absensi->id)}}" method="post">
                                                             @csrf
                                                             @method("PUT")
-                                                            <input type="text" name="jam_istirahat" value="{{date('H:i:s')}}" hidden>
+                                                            <input type="time" name="jam_istirahat" value="{{date('H:i:s')}}" hidden>
                                                             <button class="btn btn-warning">Istirahat</button>
                                                         </form>
                                                     @endif
@@ -40,7 +40,7 @@
                                                         <form action="{{url('user/pulang', $absensi->id)}}" method="post">
                                                             @csrf
                                                             @method("PUT")
-                                                            <input type="text" name="jam_pulang" value="{{date('H:i:s')}}" hidden>
+                                                            <input type="time" name="jam_pulang" value="{{date('H:i:s')}}" hidden>
                                                             <button class="btn btn-warning">Pulang</button>
                                                         </form>
                                                     @endif

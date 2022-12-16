@@ -1,6 +1,6 @@
 @extends('admin.base')
-
 @section('content')
+@include('admin.section.notif')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -149,7 +149,7 @@
                                     <div class="form-grup">
                                         <label for="">Foto</label>
                                         <input type="file" class="form-control" name="foto"
-                                            accept=".JPEG"value="{{ $datapegawai->foto }}">
+                                            accept=".jpeg, .jpg, .png"value="{{ $datapegawai->foto }}">
                                     </div>
                                 </div>
                             </div>
@@ -167,20 +167,9 @@
                                 <div class="col-md-6">
                                     <div class="form-grup">
                                         <label for="">Password</label>
-                                        <input type="password" class="form-control" name="password"
-                                            value="{{ $datapegawai->password }}">
+                                        <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
-                            </div>
-                            <label class="mt-3">Hak Akses</label>
-                            <div class="form-grup">
-                                <select class="custom-select custom-select-lg mb-3 form-control" name="level"
-                                    value="{{ $datapegawai->level }}">
-                                    <option selected> ------ Pilih Opsi ------ </option>
-                                    <option selected>{{ $datapegawai->level }}</option>
-                                    <option value="{{ $datapegawai->level }}">Admin </option>
-                                    <option value="{{ $datapegawai->level }}">Pegawai</option>
-                                </select>
                             </div>
                             <button class="btn btn-success float-right mt-3"> <i class="fa fa-save"></i>
                                 Simpan</button>

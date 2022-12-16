@@ -19,4 +19,9 @@ class UserController extends Controller
         $data ['total'] = Izin::where('id_user', $id_user)->count();
         return view('user/dashboard', $data);
     }
+
+    public function showProfil()
+    {
+        return view('user.profil.index');
+    }
 }

@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -9,7 +10,7 @@
                     <div class="card-header">
                         <div class="card-title">
                             Detail Pegawai
-                            <a href="{{url('admin/datapegawai', $datapegawai->id)}}/cetak_pdf" class="btn btn-success float-right"> Cetak</a>
+                            <a href="{{url('admin/datapegawai', $datapegawai->id)}}/cetak_pdf" target="_blank" class="btn btn-success float-right"> Cetak</a>
                         </div>
                     </div>
                     <div class="card-body">

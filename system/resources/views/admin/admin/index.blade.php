@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -25,8 +26,8 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="{{url('admin/admin', $admin->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                                @include('admin.utils.delete', ['url' => url('admin', $admin->id)])
+                                                <a href="{{url('admin/admin', $admin->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                                @include('admin.utils.delete', ['url' => url('admin/admin', $admin->id)])
                                             </div>
                                         </td>
                                         <td>{{$admin->nama}}</td>

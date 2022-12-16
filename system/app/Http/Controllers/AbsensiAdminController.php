@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Absensi;
 use App\Models\Izin;
+use App\Models\Absensi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AbsensiAdminController extends Controller
@@ -17,7 +18,11 @@ class AbsensiAdminController extends Controller
     {
         
         $data ['list_izin'] = Izin::all();
-        $data ['list_absensi'] = Absensi::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        // $data ['list_absensi'] = Absensi::all();
+        $data ['hari_ini'] = Carbon::today()->format('d F Y');
+        $data ['list_absensi'] = Absensi::whereDate('created_at', '=', Carbon::today()->toDateString())->get();
+        
         return view('admin.absensi.index', $data);
     }
 
@@ -26,9 +31,15 @@ class AbsensiAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function filter()
     {
-        //
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
+        $data ['hari_ini'] = Carbon::today()->format('d F Y');
+        $filter_tanggal = request('filter_tanggal');
+        $data ['list_absensi'] = Absensi::whereDate('created_at',$filter_tanggal)->get();
+
+        return view('admin.absensi.index', $data);
     }
 
     /**
@@ -50,6 +61,8 @@ class AbsensiAdminController extends Controller
      */
     public function show(Absensi $absensi)
     {
+        $data ['list_izin'] = Izin::all();
+        $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         $data ['list_absensi'] = Absensi::where('id',$absensi)->get();
         $data ['absensi'] = $absensi;
         return view('admin.absensi.show', $data);

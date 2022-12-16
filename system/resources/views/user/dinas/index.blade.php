@@ -3,15 +3,11 @@
     <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
+                <h5><strong>// Dinas</strong></h5>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            Dinas
-                            <a href="{{url('user/dinas/create')}}" class="btn btn-warning float-right"><i class="fa fa-plus"></i> Tambah Permintaan</a>
-                        </div>
-                    </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <a href="{{url('user/dinas/create')}}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Tambah Permintaan</a>
+                        <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">
                                     <th>Aksi</th>
@@ -28,8 +24,8 @@
                                                 </div>
                                             </td>
                                             <td>{{$dinas->nama}}</td>
-                                            <td>{{date('d F Y', strtotime($dinas->tanggal))}}</td>
-                                            <td >{!! substr(($dinas->kegiatan),0 ,70) !!}...</td>
+                                            <td>{{date('d F Y', strtotime($dinas->tanggal_mulai))}}</td>
+                                            <td >{!! substr(($dinas->deskripsi_dinas),0 ,70) !!}...</td>
                                         </tr>                   
                                     @endforeach
                                 </tbody>

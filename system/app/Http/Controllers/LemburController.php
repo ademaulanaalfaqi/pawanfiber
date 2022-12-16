@@ -98,7 +98,7 @@ class LemburController extends Controller
     public function selesai(Lembur $lembur)
     {
         $lembur->lembur = 2;
-        $lembur->jam_pulang = request('jam_pulang');
+        $lembur->selesai = request('selesai');
         $lembur->save();
         return back();
     }

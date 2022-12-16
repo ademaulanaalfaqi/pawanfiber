@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container">
         <div class="row">
             <div class="col-md-12">

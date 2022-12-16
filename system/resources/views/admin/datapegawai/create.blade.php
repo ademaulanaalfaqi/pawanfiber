@@ -1,6 +1,6 @@
 @extends('admin.base')
-
 @section('content')
+@include('admin.section.notif')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -33,14 +33,10 @@
                                     <div class="form-grup">
                                         <select class="custom-select custom-select-lg mb-3 form-control" name="divisi" required>
                                             <option selected> ------ Pilih Opsi ------ </option>
-                                            <option value="1">ADMINISTRASI</option>
-                                            <option value="2">PEGAWAI</option>
-                                            <option value="3">OFFICE BOY</option>
-                                            <option value="4">TEKNISI</option>
-                                            <option value="5">KEUANGAN</option>
-                                            <option value="6">SECURITY</option>
-                                            <option value="7">HRD</option>
-                                            <option value="8">MARKETING</option>
+                                            <option value="1">HRD & GA</option>
+                                            <option value="2">Finance</option>
+                                            <option value="3">Sales & marketing</option>
+                                            <option value="4">Network & Technical</option>
                                         </select>
                                     </div>
                                 </div>
@@ -49,10 +45,19 @@
                                     <div class="form-grup">
                                         <select class="custom-select custom-select-lg mb-3 form-control" name="jabatan" required>
                                             <option selected> ------ Pilih Opsi ------ </option>
-                                            <option value="1">HRD</option>
-                                            <option value="2">DIREKTUR</option>
-                                            <option value="3">BENDAHARA</option>
-                                            <option value="4">SEKRETARIS</option>
+                                            <option value="1">HRD GA</option>
+                                            <option value="2">Kepala Cabang</option>
+                                            <option value="3">Kepala Teknisi</option>
+                                            <option value="4">Leader Finance AP</option>
+                                            <option value="5">Leader Finance AR</option>
+                                            <option value="6">Leader Sales</option>
+                                            <option value="7">Leader IKR</option>
+                                            <option value="8">Costumer Service</option>
+                                            <option value="9">Staff Accounting</option>
+                                            <option value="10">Staff Inventory</option>
+                                            <option value="11">Staff Finance</option>
+                                            <option value="12">Staff Teknisi</option>
+                                            <option value="13">Office Boy</option>
                                         </select>
                                     </div>
                                 </div>
@@ -152,7 +157,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-success float-right mt-4"> <i class="mdi mdi-content-save"></i>
+                            <button class="btn btn-warning float-right mt-4"> <i class="fa fa-save"></i>
                                 Simpan</button>
                         </form>
                     </div>

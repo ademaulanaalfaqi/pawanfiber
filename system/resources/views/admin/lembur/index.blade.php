@@ -1,12 +1,12 @@
-@extends('user.base')
+@extends('admin.base')
 @section('content')
+@include('admin.section.notif')
     <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
                 <h5><strong>// Lembur</strong></h5>
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{url('user/lembur/create')}}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Tambah Permintaan</a>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">
@@ -22,15 +22,8 @@
                                         <tr>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{url('user/lembur', $lembur->id)}}" class="btn btn-dark"><i class="fa fa-info"></i> Lihat</a>
-                                                    @if ($lembur->lembur == 1)
-                                                        <form action="{{url('user/selesai', $lembur->id)}}" method="post">
-                                                            @csrf
-                                                            @method("PUT")
-                                                            <input type="time" name="selesai" value="{{date('H:i:s')}}" hidden>
-                                                            <button class="btn btn-warning">Pulang</button>
-                                                        </form>
-                                                    @endif
+                                                    <a href="{{url('admin/lembur', $lembur->id)}}" class="btn btn-dark"><i class="fa fa-info"></i> Lihat</a>
+                                                    @include('admin.utils.delete', ['url' => url('admin/lembur', $lembur->id)])
                                                 </div>
                                             </td>
                                             <td>{{$lembur->nama}}</td>

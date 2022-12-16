@@ -8,6 +8,7 @@ use App\Http\Controllers\IzinAdminController;
 use App\Http\Controllers\DinasAdminController;
 use App\Http\Controllers\DataPegawaiController;
 use App\Http\Controllers\AbsensiAdminController;
+use App\Http\Controllers\AdminLemburController;
 use App\Http\Controllers\AdminWebController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LemburController;
@@ -45,23 +46,23 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
     Route::delete('datapegawai/{datapegawai}', [DataPegawaiController::class, 'destroy']);
     Route::get('datapegawai/{datapegawai}/cetak_pdf', [DataPegawaiController::class, 'cetak_pdf']);
 
-
     // absensi
     Route::get('absensi', [AbsensiAdminController::class, 'index']);
-    Route::get('absensi/{absensi}', [UserAbsensiController::class, 'show']);
+    Route::get('absensi/{absensi}', [AbsensiAdminController::class, 'show']);
+    Route::post('absensi/filter', [AbsensiAdminController::class, 'filter']);
 
     // izin
     Route::get('izin', [IzinAdminController::class, 'index']);
     Route::get('izin/create', [IzinAdminController::class, 'create']);
     Route::post('izin', [IzinAdminController::class, 'store']);
     Route::get('izin/{izin}', [IzinAdminController::class, 'show']);
-
     Route::PUT('setuju/{izin}', [IzinAdminController::class, 'setuju']);
     Route::PUT('tolak/{izin}', [IzinAdminController::class, 'tolak']);
 
     // dinas
     Route::get('dinas', [DinasAdminController::class, 'index']);
     Route::get('dinas/{dinas}', [DinasAdminController::class, 'show']);
+    Route::delete('dinas/{dinas}', [DinasAdminController::class, 'destroy']);
 
     // admin
     Route::get('admin', [AdminWebController::class, 'index']);
@@ -70,12 +71,18 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
     Route::get('admin/{admin}/edit', [AdminWebController::class, 'edit']);
     Route::put('admin/{admin}', [AdminWebController::class, 'update']);
     Route::delete('admin/{admin}', [AdminWebController::class, 'destroy']);
+
+    // lembur
+    Route::get('lembur', [AdminLemburController::class, 'index']);
+    Route::get('lembur/{lembur}', [AdminLemburController::class, 'show']);
+    Route::delete('lembur/{lembur}', [AdminLemburController::class, 'destroy']);
 });
 
 Route::prefix('user')->middleware('auth:pegawai')->group(function(){
     // user
     Route::get('user', [UserController::class, 'showUser']);
     Route::get('dashboard', [UserController::class, 'showDashboard']);
+    Route::get('profil', [UserController::class, 'showProfil']);
 
     // izin
     Route::get('izin', [UserIzinController::class, 'index']);
@@ -89,11 +96,7 @@ Route::prefix('user')->middleware('auth:pegawai')->group(function(){
     Route::get('absensi', [UserAbsensiController::class, 'index']);
     Route::get('absensi/create', [UserAbsensiController::class, 'create']);
     Route::post('storeAbsensi', [UserAbsensiController::class, 'storeAbsensi']);
-    Route::get('absensi/masuk', [UserAbsensiController::class, 'masuk']);
-    Route::get('absensi/pulang', [UserAbsensiController::class, 'pulang']);
-    Route::post('absensi_masuk', [UserAbsensiController::class, 'storeMasuk']);
-    Route::post('storePulang', [UserAbsensiController::class, 'storePulang']);
-    Route::get('absensi/{absenMasuk}', [UserAbsensiController::class, 'show']);
+    Route::get('absensi/{absensi}', [UserAbsensiController::class, 'show']);
     Route::put('istirahat/{absensi}', [UserAbsensiController::class, 'istirahat']);
     Route::put('pulang/{absensi}', [UserAbsensiController::class, 'pulang']);
 
@@ -104,7 +107,7 @@ Route::prefix('user')->middleware('auth:pegawai')->group(function(){
     Route::get('lembur/{lembur}', [LemburController::class, 'show']);
     Route::put('selesai/{lembur}', [LemburController::class, 'selesai']);
 
-    // dinnas
+    // dinas
     Route::get('dinas', [UserDinasController::class, 'index']);
     Route::get('dinas/create', [UserDinasController::class, 'create']);
     Route::post('dinas', [UserDinasController::class, 'store']);
