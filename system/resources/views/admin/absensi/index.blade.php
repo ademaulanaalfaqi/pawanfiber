@@ -19,15 +19,14 @@
                                 <thead class="thead-default">
                                     <tr>
                                         <th rowspan="2">Nama</th>
-                                        <th colspan="5" style="text-align: center">{{$hari_ini}}</th>
+                                        <th colspan="4" style="text-align: center">{{$hari_ini}}</th>
                                         <th rowspan="2">Maps</th>
                                     </tr>
                                     <tr>
                                         <th>Foto</th>
                                         <th>Masuk</th>
                                         <th>Istirahat</th>
-                                        <th>Lembur</th>
-                                        <th>Dinas</th>
+                                        <th>Pulang</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,7 +35,7 @@
                                             <td>{{$absensi->nama}}</td>
                                             <td>
                                                 <div class="image" style="height: 50px">
-                                                    <img style="height: 100%" src="{{ url('public', $absensi->foto) }}"
+                                                    <img style="height: 100%" src="{{ url("public/$absensi->foto") }}"
                                                         alt="">
                                                 </div>
                                             </td>
@@ -57,7 +56,6 @@
                                                     -                                                    
                                                 @endif
                                             </td>
-                                            <td>-</td>
                                             <td><a href="{{ url('admin/absensi', $absensi->id) }}" class="btn btn-dark">Lokasi</a></td>
                                         </tr>                                    
                                     @endforeach

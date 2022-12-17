@@ -27,7 +27,7 @@ function checkRouteActive($route)
                 </a>
             </li>
             <li class="{{ checkRouteActive('user/absensi') }} {{ checkRouteActive('user/absensi/create') }} {{ checkRouteActive('user/absensi/{absensi}') }}">
-                <a class="active" href="{{ url('user/absensi') }}"><i class="sidebar-item-icon fa fa-table"></i>
+                <a class="active" href="{{ url('user/absensi') }}"><i class="sidebar-item-icon fa fa-table-list"></i>
                     <span class="nav-label">Absensi</span>
                 </a>
             </li>
@@ -37,7 +37,7 @@ function checkRouteActive($route)
                 </a>
             </li>
             <li class="{{ checkRouteActive('user/izin') }} {{ checkRouteActive('user/izin/create') }} {{ checkRouteActive('user/izin/{izin}') }} {{ checkRouteActive('user/izin/{izin}/edit') }}">
-                <a class="active" href="{{ url('user/izin') }}"><i class="sidebar-item-icon fa fa-file"></i>
+                <a class="active" href="{{ url('user/izin') }}"><i class="sidebar-item-icon fa fa-envelope"></i>
                     <span class="nav-label">Izin dan Cuti</span>
                 </a>
             </li>

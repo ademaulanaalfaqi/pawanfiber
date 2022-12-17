@@ -63,7 +63,7 @@
                                 <div class="card">
                                     <div class="card-body" style="height: 250px">
                                         <div class="image" style="height: 220px; display: flex; justify-content: center;">
-                                            <img style="height: 100%;" src="{{url('public', $izin->foto)}}" alt="">
+                                            <img style="height: 100%;" src="{{url("public/$izin->foto")}}" alt="">
                                         </div>
                                     </div>
                                 </div>

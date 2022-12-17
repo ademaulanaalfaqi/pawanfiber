@@ -16,7 +16,8 @@ class AbsensiAdminController extends Controller
      */
     public function index()
     {
-        
+        $data ['start'] = strtotime('04:00');
+        $data ['end'] = strtotime('07:00');
         $data ['list_izin'] = Izin::all();
         $data ['total_pengajuan'] = Izin::where('status', '1')->count();
         // $data ['list_absensi'] = Absensi::all();

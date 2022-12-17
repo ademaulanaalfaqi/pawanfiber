@@ -62,7 +62,7 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-body" style="height: 250px; display: flex; justify-content: center">
-                                        <img style="height: 100%" src="{{ url('public', $datapegawai->foto) }}" alt="">
+                                        <img style="height: 100%" src="{{ url("public/$datapegawai->foto") }}" alt="">
                                     </div>
                                 </div>
                             </div>

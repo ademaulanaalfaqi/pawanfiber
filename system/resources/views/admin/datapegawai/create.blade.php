@@ -136,7 +136,10 @@
                                 <div class="col-md-4">
                                     <div class="form-grup">
                                         <label for="">Foto</label>
-                                        <input type="file" class="form-control" name="foto" accept=".jpeg, .jpg, .png" required>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" name="foto" accept=".jpeg, .jpg, .png" required>
+                                            <div class="input-group-addon bg-white">JPG, JPEG, PNG</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

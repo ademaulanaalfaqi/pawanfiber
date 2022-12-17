@@ -49,7 +49,7 @@
                                             <td>{{ $absensi->datapegawai->nama }}</td>
                                             <td>
                                                 <div class="image" style="height: 50px">
-                                                    <img style="height: 100%" src="{{ url('public', $absensi->foto) }}"
+                                                    <img style="height: 100%" src="{{ url("public/$absensi->foto") }}"
                                                         alt="">
                                                 </div>
                                             </td>
