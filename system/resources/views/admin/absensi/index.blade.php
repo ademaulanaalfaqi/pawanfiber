@@ -19,7 +19,7 @@
                                 <thead class="thead-default">
                                     <tr>
                                         <th rowspan="2">Nama</th>
-                                        <th colspan="4" style="text-align: center">{{$hari_ini}}</th>
+                                        <th colspan="4" style="text-align: center">{{ date('d F Y', strtotime($hari_ini)) }}</th>
                                         <th rowspan="2">Maps</th>
                                     </tr>
                                     <tr>

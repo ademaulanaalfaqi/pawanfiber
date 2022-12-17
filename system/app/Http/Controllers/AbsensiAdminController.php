@@ -36,8 +36,8 @@ class AbsensiAdminController extends Controller
     {
         $data ['list_izin'] = Izin::all();
         $data ['total_pengajuan'] = Izin::where('status', '1')->count();
-        $data ['hari_ini'] = Carbon::today()->format('d F Y');
         $filter_tanggal = request('filter_tanggal');
+        $data ['hari_ini'] = $filter_tanggal;
         $data ['list_absensi'] = Absensi::whereDate('created_at',$filter_tanggal)->get();
 
         return view('admin.absensi.index', $data);
