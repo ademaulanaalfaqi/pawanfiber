@@ -6,7 +6,7 @@
                 <h5><strong>// Izin dan Cuti</strong></h5>
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{url('user/izin/create')}}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Tambah Permintaan</a>
+                        <a href="{{url('user/izin/create')}}" class="btn btn-outline-success"><i class="fa fa-plus"></i> Tambah Permintaan</a> <hr>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">

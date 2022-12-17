@@ -6,7 +6,7 @@
                 <h5><strong>// Absensi</strong></h5>
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ url('user/absensi/create') }}" class="btn btn-outline-success"><i class="fa fa-plus"></i>Absen</a>
+                        <a href="{{ url('user/absensi/create') }}" class="btn btn-outline-success"><i class="fa fa-plus"></i>Absen</a> <hr>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
                                 <thead class="thead-default">

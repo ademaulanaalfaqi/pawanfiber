@@ -1,10 +1,10 @@
 @extends('admin.base')
 @section('content')
 @include('admin.section.notif')
-    <div class="container-fluid">
+    <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
-                <strong>// Data Pegawai</strong>
+                <h5><strong>// Data Pegawai</strong></h5>
                 <div class="card mt-3">
                     <div class="card-body">
                         <a href="{{ url('admin/datapegawai/create') }}" class="btn btn-outline-success "><i

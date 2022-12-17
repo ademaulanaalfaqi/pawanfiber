@@ -1,11 +1,11 @@
 @extends('admin.base')
 @section('content')
 @include('admin.section.notif')
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
                 <h5><strong>// Absensi</strong></h5>
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body">
                         <form action="{{url('admin/absensi/filter')}}" method="post">
                             @csrf

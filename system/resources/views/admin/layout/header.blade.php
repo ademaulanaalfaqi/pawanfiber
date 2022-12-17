@@ -1,6 +1,6 @@
 <header class="header">
     <div class="page-brand">
-        <a class="link" href="index.html">
+        <a class="link">
             <span class="brand">Pawan Fiber</span>
             <span class="brand-mini">PF</span>
         </a>

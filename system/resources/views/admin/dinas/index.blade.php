@@ -1,11 +1,11 @@
 @extends('admin.base')
 @section('content')
 @include('admin.section.notif')
-    <div class="container-fluid">
+    <div class="container-fluid mt-2">
         <div class="row">
             <div class="col-md-12">
                 <h5><strong>// Dinas</strong></h5>
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body">
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">

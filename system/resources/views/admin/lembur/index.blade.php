@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h5><strong>// Lembur</strong></h5>
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body">
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered table-datatable">
