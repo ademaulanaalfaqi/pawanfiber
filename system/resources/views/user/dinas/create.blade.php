@@ -55,13 +55,13 @@
                                 <div class="col-md-6">
                                     <div class="form-grup">
 
-                                        <input type="text" class="form-control" id="longitude" name="longitude" readonly>
+                                        <input type="text" class="form-control" id="longitude" name="longitude" hidden>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-grup">
 
-                                        <input type="text" class="form-control" id="latitude" name="latitude" readonly>
+                                        <input type="text" class="form-control" id="latitude" name="latitude" hidden>
                                     </div>
                                 </div>
                             </div>
