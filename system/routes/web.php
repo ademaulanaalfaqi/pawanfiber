@@ -27,10 +27,6 @@ use App\Http\Controllers\UserIzinController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::prefix('admin')->middleware('auth:admin')->group(function(){
     // admin
     Route::get('admin', [AdminController::class, 'showAdmin']);
